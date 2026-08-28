@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="dashboard-grid">
+
+      <!-- Greeting Widget -->
+      <section id="greeting-widget" class="widget" aria-label="Greeting">
+        <div id="clock" aria-live="polite" aria-atomic="true">--:--:--</div>
+        <div id="date"></div>
+        <div id="greeting-message" aria-live="polite"></div>
+      </section>
+
+      <!-- Timer Widget -->
+      <section id="timer-widget" class="widget" aria-label="Focus Timer">
+        <h2>Focus Timer</h2>
+        <div id="timer-display" aria-live="polite" aria-atomic="true">25:00</div>
+        <div
+          id="timer-complete-banner"
+          role="status"
+          aria-live="assertive"
+          hidden
+        >
+          Session complete! Great work.
+        </div>
+        <div class="timer-controls">
+          <button id="btn-start" type="button">Start</button>
+          <button id="btn-stop" type="button" disabled>Stop</button>
+          <button id="btn-reset" type="button">Reset</button>
+        </div>
+      </section>
+
+      <!-- Todo List Widget -->
+      <section id="todo-widget" class="widget" aria-label="To-Do List">
+        <h2>To-Do List</h2>
+        <div class="todo-form">
+          <label for="todo-input">New task</label>
+          <input
+            type="text"
+            id="todo-input"
+            name="todo-input"
+            maxlength="500"
+            placeholder="Enter a task…"
+            autocomplete="off"
+          />
+          <button id="btn-add-todo" type="button">Add</button>
+        </div>
+        <div
+          id="todo-error"
+          role="alert"
+          aria-live="assertive"
+          class="error-banner"
+        ></div>
+        <ul id="todo-list" aria-label="Task list"></ul>
+      </section>
+
+      <!-- Quick Links Widget -->
+      <section id="quicklinks-widget" class="widget" aria-label="Quick Links">
+        <h2>Quick Links</h2>
+        <div class="links-form">
+          <div class="form-field">
+            <label for="link-label-input">Label</label>
+            <input
+              type="text"
+              id="link-label-input"
+              name="link-label-input"
+              maxlength="100"
+              placeholder="Site name…"
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-field">
+            <label for="link-url-input">URL</label>
+            <input
+              type="url"
+              id="link-url-input"
+              name="link-url-input"
+              maxlength="2048"
+              placeholder="https://…"
+              autocomplete="off"
+            />
+          </div>
+          <button id="btn-add-link" type="button">Add Link</button>
+        </div>
+        <div
+          id="links-error"
+          role="alert"
+          aria-live="assertive"
+          class="error-banner"
+        ></div>
+        <div id="links-panel" aria-label="Saved links"></div>
+      </section>
+
+    </main>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

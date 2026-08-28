@@ -1,0 +1,493 @@
+/* ============================================================
+   Todo List Dashboard — style.css
+   All styles for the dashboard; no inline styles or <style>
+   blocks are present in index.html (Requirement 13.2).
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1. CSS Custom Properties (design tokens)
+   ---------------------------------------------------------- */
+:root {
+  --color-bg:           #f0f2f5;
+  --color-surface:      #ffffff;
+  --color-border:       #d1d5db;
+  --color-text:         #1f2937;
+  --color-text-muted:   #6b7280;
+  --color-primary:      #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-danger:       #ef4444;
+  --color-danger-bg:    #fef2f2;
+  --color-danger-border:#fecaca;
+  --color-success:      #10b981;
+  --color-warning-bg:   #fffbeb;
+  --color-warning-border:#fde68a;
+  --color-completed:    #9ca3af;
+
+  --radius:      0.5rem;
+  --shadow:      0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-lg:   0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --transition:  150ms ease;
+}
+
+/* ----------------------------------------------------------
+   2. Reset / Base
+   ---------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  padding: 1.5rem;
+  line-height: 1.5;
+}
+
+/* ----------------------------------------------------------
+   3. Dashboard Grid (Requirement 13.2, 14.1)
+   Two-column grid on wide screens; single column on narrow.
+   ---------------------------------------------------------- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;          /* cards don't stretch to match tallest sibling */
+  gap: 1.5rem;
+  max-width: 1200px;
+  min-height: 100dvh;          /* grid fills the viewport height */
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----------------------------------------------------------
+   4. Widget Cards
+   ---------------------------------------------------------- */
+.widget {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;                /* prevent grid children from overflowing */
+  transition: box-shadow var(--transition);
+}
+
+.widget:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.widget h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ----------------------------------------------------------
+   5. Greeting Widget
+   ---------------------------------------------------------- */
+#greeting-widget {
+  align-items: flex-start;
+}
+
+#clock {
+  font-size: 3rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+#date {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+#greeting-message {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ----------------------------------------------------------
+   6. Timer Widget
+   ---------------------------------------------------------- */
+#timer-widget {
+  align-items: center;
+  text-align: center;
+}
+
+#timer-display {
+  font-size: 4rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Timer complete banner — JS drives visibility via inline style.display
+   (no display:none here; that would conflict with inline style override).
+   The HTML `hidden` attribute provides the initial hidden state; JS uses
+   style.display to toggle visibility (Requirement 3.5). */
+#timer-complete-banner {
+  background-color: var(--color-success);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  width: 100%;
+  text-align: center;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ----------------------------------------------------------
+   7. Buttons (shared)
+   ---------------------------------------------------------- */
+button {
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding: 0.4375rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transition: background-color var(--transition), opacity var(--transition);
+  white-space: nowrap;
+  user-select: none;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Disabled state (Req 4.5, 4.6, 4.8) */
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Secondary / outline variant used for Edit and Delete controls */
+button.btn-secondary {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+button.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-bg);
+}
+
+button.btn-danger {
+  background-color: transparent;
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+button.btn-danger:hover:not(:disabled) {
+  background-color: var(--color-danger-bg);
+}
+
+/* ----------------------------------------------------------
+   8. Form inputs (shared)
+   ---------------------------------------------------------- */
+input[type="text"],
+input[type="url"] {
+  font: inherit;
+  font-size: 0.9375rem;
+  width: 100%;
+  padding: 0.4375rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ----------------------------------------------------------
+   9. Error Banners — hidden by default (Requirement 7.2, 13.2)
+   ---------------------------------------------------------- */
+.error-banner {
+  display: none; /* JS sets display:block to show */
+  background-color: var(--color-danger-bg);
+  border: 1px solid var(--color-danger-border);
+  color: var(--color-danger);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+}
+
+/* ----------------------------------------------------------
+   10. Todo Widget
+   ---------------------------------------------------------- */
+
+/* Grid layout: label spans full width; input + button sit in the same row */
+.todo-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 0.5rem;
+  row-gap: 0.375rem;
+}
+
+.todo-form label {
+  grid-column: 1 / -1; /* label spans full width above the input+button row */
+}
+
+.todo-form input[type="text"] {
+  grid-column: 1;
+}
+
+.todo-form button {
+  grid-column: 2;
+  align-self: stretch;
+}
+
+#todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 24rem;
+}
+
+/* Individual task item — JS sets class="todo-item [completed]" on the <li> */
+#todo-list li,
+#todo-list .todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  transition: background-color var(--transition);
+}
+
+#todo-list li:hover,
+#todo-list .todo-item:hover {
+  background-color: var(--color-bg);
+}
+
+#todo-list li input[type="checkbox"],
+#todo-list .todo-item input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+#todo-list li .task-title,
+#todo-list .todo-item .task-title {
+  flex: 1;
+  font-size: 0.9375rem;
+  word-break: break-word;
+}
+
+/* Completed task — strikethrough + muted colour (Requirements 7.2, 7.3) */
+#todo-list li .task-title.completed,
+#todo-list .todo-item .task-title.completed,
+.completed {
+  text-decoration: line-through;
+  color: var(--color-completed);
+}
+
+/* Edit-mode inline input — JS sets class="task-edit-input" */
+#todo-list li input.edit-input,
+#todo-list li input.task-edit-input,
+#todo-list .todo-item input.task-edit-input {
+  flex: 1;
+  font-size: 0.9375rem;
+}
+
+/* Task action buttons (Edit = .btn-edit, Delete = .btn-delete) */
+#todo-list li .task-actions,
+#todo-list .todo-item .task-actions {
+  display: flex;
+  gap: 0.375rem;
+  flex-shrink: 0;
+}
+
+/* Buttons rendered directly on the <li> by JS (no .task-actions wrapper) */
+#todo-list li .btn-edit,
+#todo-list li .btn-delete,
+#todo-list .todo-item .btn-edit,
+#todo-list .todo-item .btn-delete,
+#todo-list li .task-actions button {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8125rem;
+}
+
+#todo-list li .btn-edit,
+#todo-list .todo-item .btn-edit {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+#todo-list li .btn-edit:hover:not(:disabled),
+#todo-list .todo-item .btn-edit:hover:not(:disabled) {
+  background-color: var(--color-bg);
+}
+
+#todo-list li .btn-delete,
+#todo-list .todo-item .btn-delete {
+  background-color: transparent;
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+#todo-list li .btn-delete:hover:not(:disabled),
+#todo-list .todo-item .btn-delete:hover:not(:disabled) {
+  background-color: var(--color-danger-bg);
+}
+
+/* ----------------------------------------------------------
+   11. Quick Links Widget
+   ---------------------------------------------------------- */
+.links-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.links-form .form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.links-form button {
+  align-self: flex-start;
+}
+
+#links-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Individual link entry: pill button + delete icon
+   JS sets class="link-item" on the wrapper div,
+   class="btn-link" on the link button,
+   class="btn-delete-link" on the delete button */
+.link-entry,
+.link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  max-width: 100%;
+}
+
+.link-btn,
+.btn-link {
+  display: inline-block;
+  max-width: 12rem;          /* wide enough for ~18–20 chars; ellipsis handles overflow */
+  overflow: hidden;
+  text-overflow: ellipsis;  /* truncate long labels (Requirement 10.6) */
+  white-space: nowrap;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: 9999px;   /* pill shape */
+  padding: 0.3125rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.link-btn:hover,
+.btn-link:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.link-delete-btn,
+.btn-delete-link {
+  background-color: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  padding: 0.25rem;
+  font-size: 1rem;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color var(--transition), background-color var(--transition);
+  flex-shrink: 0;
+}
+
+.link-delete-btn:hover,
+.btn-delete-link:hover {
+  color: var(--color-danger);
+  background-color: var(--color-danger-bg);
+}
+
+/* ----------------------------------------------------------
+   12. Accessibility helpers
+   ---------------------------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

@@ -1,0 +1,191 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `index.html` at the project root with the full page structure": [
+      {
+        "executionId": "278b749c-4454-4e69-88f5-54380f882fd0",
+        "chatSessionId": "sess_af24783e-4ea4-4c0b-bf48-85b385c3d66c",
+        "timestamp": 1787909449519
+      },
+      {
+        "executionId": "278b749c-4454-4e69-88f5-54380f882fd0",
+        "chatSessionId": "sess_af24783e-4ea4-4c0b-bf48-85b385c3d66c",
+        "timestamp": 1787909513194
+      }
+    ],
+    "1.2 Create `css/style.css` with base layout styles": [
+      {
+        "executionId": "27d2c2ce-3ba3-4d87-b753-d8318e2dd32a",
+        "chatSessionId": "sess_d949adcf-add8-4bfe-9fbe-20310bca8cda",
+        "timestamp": 1787909564397
+      },
+      {
+        "executionId": "27d2c2ce-3ba3-4d87-b753-d8318e2dd32a",
+        "chatSessionId": "sess_d949adcf-add8-4bfe-9fbe-20310bca8cda",
+        "timestamp": 1787912758686
+      },
+      {
+        "executionId": "2a5ae608-df17-4a28-ac7d-efe7e2d00ab3",
+        "chatSessionId": "sess_10717150-cf41-48a6-8584-a21db6705469",
+        "timestamp": 1787912790436
+      },
+      {
+        "executionId": "2a5ae608-df17-4a28-ac7d-efe7e2d00ab3",
+        "chatSessionId": "sess_10717150-cf41-48a6-8584-a21db6705469",
+        "timestamp": 1787912804423
+      }
+    ],
+    "1.3 Create `js/main.js` with the top-level IIFE scaffold": [
+      {
+        "executionId": "27d2c2ce-3ba3-4d87-b753-d8318e2dd32a",
+        "chatSessionId": "sess_d949adcf-add8-4bfe-9fbe-20310bca8cda",
+        "timestamp": 1787909568352
+      },
+      {
+        "executionId": "27d2c2ce-3ba3-4d87-b753-d8318e2dd32a",
+        "chatSessionId": "sess_d949adcf-add8-4bfe-9fbe-20310bca8cda",
+        "timestamp": 1787912762947
+      }
+    ],
+    "1. Scaffold project structure and HTML skeleton": [
+      {
+        "executionId": "27d2c2ce-3ba3-4d87-b753-d8318e2dd32a",
+        "chatSessionId": "sess_d949adcf-add8-4bfe-9fbe-20310bca8cda",
+        "timestamp": 1787912762989
+      }
+    ],
+    "2.1 Implement `StorageManager.saveTasks` and `StorageManager.loadTasks`": [
+      {
+        "executionId": "181d1505-834a-4709-aafb-0718c13076ba",
+        "chatSessionId": "sess_c701ae1b-8f86-4519-a012-f297f3cc2ffa",
+        "timestamp": 1787912870208
+      },
+      {
+        "executionId": "181d1505-834a-4709-aafb-0718c13076ba",
+        "chatSessionId": "sess_c701ae1b-8f86-4519-a012-f297f3cc2ffa",
+        "timestamp": 1787912932118
+      }
+    ],
+    "3. Implement GreetingModule": [
+      {
+        "executionId": "c967f040-8974-404d-bae7-45d5fe41fc9b",
+        "chatSessionId": "sess_318fc80e-f6ee-4b35-b2a8-badba91cc19b",
+        "timestamp": 1787912973415
+      },
+      {
+        "executionId": "c967f040-8974-404d-bae7-45d5fe41fc9b",
+        "chatSessionId": "sess_318fc80e-f6ee-4b35-b2a8-badba91cc19b",
+        "timestamp": 1787913027337
+      }
+    ],
+    "4.1 Implement TimerModule state machine and display": [
+      {
+        "executionId": "02ef1ef9-ddd2-4f9e-9da7-a04c12b4a5fe",
+        "chatSessionId": "sess_abaa9623-e749-4316-bfc3-7a2eb34d8771",
+        "timestamp": 1787913073817
+      },
+      {
+        "executionId": "02ef1ef9-ddd2-4f9e-9da7-a04c12b4a5fe",
+        "chatSessionId": "sess_abaa9623-e749-4316-bfc3-7a2eb34d8771",
+        "timestamp": 1787913151580
+      }
+    ],
+    "4. Implement TimerModule": [
+      {
+        "executionId": "02ef1ef9-ddd2-4f9e-9da7-a04c12b4a5fe",
+        "chatSessionId": "sess_abaa9623-e749-4316-bfc3-7a2eb34d8771",
+        "timestamp": 1787913151632
+      }
+    ],
+    "6.1 Implement `TodoModule.init` and `TodoModule._renderList`": [
+      {
+        "executionId": "14f45952-392c-4be9-8734-887c922f36c0",
+        "chatSessionId": "sess_2964c262-54ff-4b99-a379-b50d2056c41d",
+        "timestamp": 1787913172331
+      },
+      {
+        "executionId": "14f45952-392c-4be9-8734-887c922f36c0",
+        "chatSessionId": "sess_2964c262-54ff-4b99-a379-b50d2056c41d",
+        "timestamp": 1787913233425
+      }
+    ],
+    "7.1 Implement `QuickLinksModule.init` and `QuickLinksModule._renderPanel`": [
+      {
+        "executionId": "69865a02-3f1c-4a5f-a151-f63b74800a17",
+        "chatSessionId": "sess_2e0c72a2-5253-4fa7-91e0-8bbac2643e4c",
+        "timestamp": 1787913266740
+      }
+    ],
+    "8.1 Implement the `DOMContentLoaded` bootstrap block": [
+      {
+        "executionId": "089b71c2-870f-4ba6-b835-01cc795eb33c",
+        "chatSessionId": "sess_32b6a547-b432-4170-ac11-0d0d1099ca7e",
+        "timestamp": 1787913300134
+      }
+    ],
+    "9. Checkpoint — full integration": [
+      {
+        "executionId": "2f37c804-6052-46f4-9ea7-6b316c5caafc",
+        "chatSessionId": "sess_330bbb43-5f9c-4c92-ad2f-439035e31a00",
+        "timestamp": 1787913345915
+      },
+      {
+        "executionId": "2f37c804-6052-46f4-9ea7-6b316c5caafc",
+        "chatSessionId": "sess_330bbb43-5f9c-4c92-ad2f-439035e31a00",
+        "timestamp": 1787913588772
+      }
+    ],
+    "10.1 Style the dashboard grid and widget cards": [
+      {
+        "executionId": "f8229233-9388-4cfb-b85f-ac625aaf893e",
+        "chatSessionId": "sess_0caf97fe-997f-4b65-b3e6-2974aab79e94",
+        "timestamp": 1787913619669
+      },
+      {
+        "executionId": "f8229233-9388-4cfb-b85f-ac625aaf893e",
+        "chatSessionId": "sess_0caf97fe-997f-4b65-b3e6-2974aab79e94",
+        "timestamp": 1787913805108
+      }
+    ],
+    "10. Apply full CSS styling": [
+      {
+        "executionId": "7920ab64-829a-4c37-96c5-56e3efd31b2d",
+        "chatSessionId": "sess_6241ed6b-a5eb-4699-9e22-6deac777a399",
+        "timestamp": 1787914307510
+      },
+      {
+        "executionId": "7920ab64-829a-4c37-96c5-56e3efd31b2d",
+        "chatSessionId": "sess_6241ed6b-a5eb-4699-9e22-6deac777a399",
+        "timestamp": 1787914476606
+      }
+    ],
+    "10.2 Style the Greeting Widget": [
+      {
+        "executionId": "7920ab64-829a-4c37-96c5-56e3efd31b2d",
+        "chatSessionId": "sess_6241ed6b-a5eb-4699-9e22-6deac777a399",
+        "timestamp": 1787914464296
+      }
+    ],
+    "10.3 Style the Timer Widget": [
+      {
+        "executionId": "7920ab64-829a-4c37-96c5-56e3efd31b2d",
+        "chatSessionId": "sess_6241ed6b-a5eb-4699-9e22-6deac777a399",
+        "timestamp": 1787914468525
+      }
+    ],
+    "10.4 Style the Todo List Widget": [
+      {
+        "executionId": "7920ab64-829a-4c37-96c5-56e3efd31b2d",
+        "chatSessionId": "sess_6241ed6b-a5eb-4699-9e22-6deac777a399",
+        "timestamp": 1787914472489
+      }
+    ],
+    "10.5 Style the Quick Links Widget": [
+      {
+        "executionId": "7920ab64-829a-4c37-96c5-56e3efd31b2d",
+        "chatSessionId": "sess_6241ed6b-a5eb-4699-9e22-6deac777a399",
+        "timestamp": 1787914476542
+      }
+    ]
+  }
+}
